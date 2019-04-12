@@ -18,7 +18,8 @@ app.get('/', function (req, res,next) {
 app.post('/', function(req, res, next) {
   var newMessage = {
   	user : req.body.username,
-  	mess : req.body.message
+  	mess : req.body.message,
+  	time : req.body.time
   };
   conversations.push(newMessage);
   
