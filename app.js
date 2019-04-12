@@ -23,11 +23,11 @@ app.post('/', function(req, res, next) {
   	mess : req.body.message
   };
   conversations.push(newMessage);
-  /*
+  
   res.json({
   	success: true
   });
-  */
+  
 });
 
 
