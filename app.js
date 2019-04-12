@@ -11,9 +11,7 @@ app.use(bodyParser.json());
 var conversations = [];
 
 app.get('/', function (req, res,next) {
-  res.json({
-    'messages' : conversations
-  }); 
+  res.send(conversations);
 });
 
 
