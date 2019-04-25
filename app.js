@@ -37,7 +37,7 @@ app.get('/',function(req,res,next){
 
 	try {
   		if (fs.existsSync(put)) {
-    	res.send(put);
+    	res.sendFile(put);
   		}else{
   			res.send({
   				ima: false
