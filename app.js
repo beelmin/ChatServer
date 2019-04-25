@@ -1,8 +1,10 @@
 var express = require('express');
+
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
+
 var bodyParser = require("body-parser");
-
 var app = express();
-
 const port=process.env.PORT || 3000
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -10,12 +12,31 @@ app.use(bodyParser.json());
 
 var conversations = [];
 
+var slika;
+
+app.post('/', upload.single('avatar'), function (req, res, next) {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+  slika = req.file;
+});
+
+app.post('/upload',function(req,res,next){
+
+	res.send(slika);
+
+});
+
+
+/*
+
 app.get('/', function (req, res,next) {
   res.send(conversations);
 });
 
+*/
 
 
+/*
 app.post('/', function(req, res, next) {
   var newMessage = {
   	user : req.body.username,
@@ -30,6 +51,7 @@ app.post('/', function(req, res, next) {
   
 });
 
+*/
 
 
 app.listen(port, function () {
