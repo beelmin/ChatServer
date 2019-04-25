@@ -38,7 +38,11 @@ app.get('/',function(req,res,next){
 	try {
   		if (fs.existsSync(put)) {
     	res.send(put);
-  	}
+  		}else{
+  			res.send({
+  				ima: false
+  			})
+  		}
 	} catch(err) {
 	  console.error(err)
 	}
