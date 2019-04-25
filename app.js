@@ -12,18 +12,14 @@ app.use(bodyParser.json());
 
 var conversations = [];
 
-var slika;
 
-app.post('/', upload.single('avatar'), function (req, res, next) {
+
+app.post('/', upload.single('slika'), function (req, res, next) {
   // req.file is the `avatar` file
   // req.body will hold the text fields, if there were any
-  slika = req.file;
-});
-
-app.get('/upload',function(req,res,next){
-
-	res.send(slika);
-
+  res.send({
+  	file: req.file
+  });
 });
 
 
