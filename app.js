@@ -31,9 +31,9 @@ app.post('/', upload.single('slika'), function (req, res, next) {
 
 app.get('/',function(req,res,next){
 
-
-	res.sendFile(path.resolve(__dirname, '/',name));
-  	res.end()
+	var put = __dirname + "/" + name;
+	res.sendFile(put);
+  	res.end();
 
 });
 
