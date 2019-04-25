@@ -3,6 +3,8 @@ var express = require('express');
 var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' });
 
+const fs = require('fs')
+
 var bodyParser = require("body-parser");
 var app = express();
 const port=process.env.PORT || 3000
@@ -32,7 +34,16 @@ app.post('/', upload.single('slika'), function (req, res, next) {
 app.get('/',function(req,res,next){
 
 	var put = __dirname + "/" + name;
-	res.send(put);
+
+	try {
+  		if (fs.existsSync(put)) {
+    	res.send(put);
+  	}
+	} catch(err) {
+	  console.error(err)
+	}
+
+	
   	
 
 });
