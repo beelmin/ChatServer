@@ -20,7 +20,7 @@ app.post('/', upload.single('avatar'), function (req, res, next) {
   slika = req.file;
 });
 
-app.post('/upload',function(req,res,next){
+app.get('/upload',function(req,res,next){
 
 	res.send(slika);
 
